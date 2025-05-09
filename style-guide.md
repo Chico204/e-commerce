@@ -2,7 +2,7 @@
 
 ## Layout
 
-The designs were created to the following widths:
+The designs were created to the following widths: rubbish
 
 - Mobile: 375px
 - Desktop: 1440px
