@@ -9,12 +9,14 @@
   <title> E-commerce product page</title>
 
   <link rel="stylesheet" href="style.css">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
      <ul class="sidebar">
-      <a><img class="close" src="/images/icon-close.svg" alt=""></a>
+      <a><img class="close btn" src="/images/icon-close.svg" alt=""></a>
       <a href="#">Collections</a>
       <a href="#">Men</a>
       <a href="#">Women</a>
@@ -25,33 +27,53 @@
       <div class="frrr">
       <a href="#"><img class="hamburger" src="/images/icon-menu.svg" alt=""></a>
       <a class="hero"  href="#"><img  src="/images/logo.svg" alt=""></a>
-      </div>
+      
       <a class="hideOnMobile" href="#">Collections</a>
       <a class="hideOnMobile" href="#">Men</a>
       <a class="hideOnMobile" href="#">Women</a>
       <a class="hideOnMobile"  href="#">About</a>
       <a class="hideOnMobile" href="#">Contact</a>
+      </div>
       <div class="img">
         <div class="cart-icon" onclick="toggleCartDropdown()">
      <img src="/images/icon-cart.svg" width="30px" height="30px"> <span id="cart-badge">0</span>
     </div>
      
-    <img src="/images/image-avatar.png" width="50px" height="50px">
+    <img src="/images/image-avatar.png" width="40px" height="40px">
 </div>
     </ul>
     
   </nav>
  <div class="cart-dropdown" id="cart-dropdown">
   <h4>Cart</h4>
+  
   <div id="cart-items"></div>
   <button class="checkout-btn">Checkout</button>
 </div>
 
   <div class="product">
-  <img src="/images/image-product-1.jpg" width="100%" height="auto">
+  <div class="product-preview">
+  <img id="main-image" src="images/image-product-1.jpg" alt="Sneakers" onclick="openLightbox()">
+</div>
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()"><img src="/images/icon-close.svg" alt=""></span>
+
+  <div class="lightbox-wrapper">
+    <span class="nav prev" onclick="prevImage()">❮</span>
+    <img id="lightbox-img" src="" alt="Zoomed Image" />
+    <span class="nav next" onclick="nextImage()">❯</span>
+  </div>
+
+  <div class="lightbox-thumbnails">
+    <img src="images/image-product-1-thumbnail.jpg" onclick="setImage(0)">
+    <img src="images/image-product-2-thumbnail.jpg" onclick="setImage(1)">
+    <img src="images/image-product-3-thumbnail.jpg" onclick="setImage(2)">
+    <img src="images/image-product-4-thumbnail.jpg" onclick="setImage(3)">
+  </div>
+</div>
   <div class="product-info">
     <p class="brand">SNEAKER COMPANY</p>
-    <h1>Fall Limited Edition Sneakers</h1>
+    <h1 class="h1">Fall Limited Edition Sneakers</h1>
     <p class="description">
       These low-profile sneakers are your perfect casual wear companion.
       Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
@@ -67,7 +89,7 @@
         <input type="text" id="qty" value="0" readonly>
         <button onclick="changeQty(1)">+</button>
       </div>
-      <button class="add-to-cart" onclick="addToCart()">🛒 Add to cart</button>
+      <button class="add-to-cart" onclick="addToCart()"><img src="/images/icon-cart.svg" alt=""> Add to cart</button>
     </div>
   </div>
 </div>

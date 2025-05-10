@@ -39,7 +39,7 @@ function renderCartDropdown() {
   container.innerHTML = "";
 
   if (cart.length === 0) {
-    container.innerHTML = "<p>Your cart is empty.</p>";
+    container.innerHTML = `<p class="para">Your cart is empty.</p>`;
     return;
   }
 
@@ -47,12 +47,12 @@ function renderCartDropdown() {
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
+      <img class="img" src="${item.image}" alt="${item.name}">
       <div class="cart-item-info">
         <p>${item.name}</p>
         <p>$${item.price.toFixed(2)} x ${item.qty} <strong>$${(item.price * item.qty).toFixed(2)}</strong></p>
       </div>
-      <span class="cart-item-remove" onclick="removeFromCart(${index})">🗑️</span>
+      <span class="cart-item-remove" onclick="removeFromCart(${index})"><img class="delete" src="/images/icon-delete.svg" ></span>
     `;
     container.appendChild(div);
   });
@@ -69,4 +69,32 @@ function toggleCartDropdown() {
 }
 function showCartDropdown() {
   document.getElementById("cart-dropdown").style.display = "flex";
+}
+const images = [
+   '/images/image-product-1.jpg',
+    '/images/image-product-2.jpg',
+     '/images/image-product-3.jpg',
+      '/images/image-product-4.jpg'
+]
+
+let currentImageIndex = 0
+
+function openLightbox(){
+  document.getElementById("lightbox").style.display = "flex"
+  setImage(currentImageIndex)
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+function setImage(index) {
+  currentImageIndex = index;
+  document.getElementById("lightbox-img").src = images[index];
+}
+function prevImage() {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  setImage(currentImageIndex);
+}
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  setImage(currentImageIndex);
 }
