@@ -12,38 +12,66 @@
   
 </head>
 <body>
-  <div class="cd-cart cd-cart--empty js-cd-cart">
-  <a href="#0" class="cd-cart__trigger text-replace">
-    Cart
-    <ul class="cd-cart__count"> <!-- cart items count -->
-      <li>0</li>
-      <li>0</li>
-    </ul> <!-- .cd-cart__count -->
-  </a>
-
-  <div class="cd-cart__content">
-    <div class="cd-cart__layout">
-      <header class="cd-cart__header">
-        <h2>Cart</h2>
-        <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
-      </header>
-      
-      <div class="cd-cart__body">
-        <ul>
-          <!-- products added to the cart will be inserted here using JavaScript -->
-        </ul>
+  <nav>
+     <ul class="sidebar">
+      <a><img class="close" src="/images/icon-close.svg" alt=""></a>
+      <a href="#">Collections</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </ul>
+    <ul>
+      <div class="frrr">
+      <a href="#"><img class="hamburger" src="/images/icon-menu.svg" alt=""></a>
+      <a class="hero"  href="#"><img  src="/images/logo.svg" alt=""></a>
       </div>
-
-      <footer class="cd-cart__footer">
-        <a href="#0" class="cd-cart__checkout">
-          <em>Checkout - $<span>0</span>
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
-            </svg>
-          </em>
-        </a>
-      </footer>
+      <a class="hideOnMobile" href="#">Collections</a>
+      <a class="hideOnMobile" href="#">Men</a>
+      <a class="hideOnMobile" href="#">Women</a>
+      <a class="hideOnMobile"  href="#">About</a>
+      <a class="hideOnMobile" href="#">Contact</a>
+      <div class="img">
+        <div class="cart-icon" onclick="toggleCartDropdown()">
+     <img src="/images/icon-cart.svg" width="30px" height="30px"> <span id="cart-badge">0</span>
     </div>
-  </div> <!-- .cd-cart__content -->
-</div> <!-- cd-cart -->
-</body>
+     
+    <img src="/images/image-avatar.png" width="50px" height="50px">
+</div>
+    </ul>
+    
+  </nav>
+ <div class="cart-dropdown" id="cart-dropdown">
+  <h4>Cart</h4>
+  <div id="cart-items"></div>
+  <button class="checkout-btn">Checkout</button>
+</div>
+
+  <div class="product">
+  <img src="/images/image-product-1.jpg" width="100%" height="auto">
+  <div class="product-info">
+    <p class="brand">SNEAKER COMPANY</p>
+    <h1>Fall Limited Edition Sneakers</h1>
+    <p class="description">
+      These low-profile sneakers are your perfect casual wear companion.
+      Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
+    </p>
+
+    <div class="price-box">
+      <div class="current-price">$125.00 <span class="discount">50%</span></div>
+      <div class="old-price">$250.00</div>
+    </div>
+     <div class="quantity-cart">
+      <div class="quantity-selector">
+        <button onclick="changeQty(-1)">−</button>
+        <input type="text" id="qty" value="0" readonly>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+      <button class="add-to-cart" onclick="addToCart()">🛒 Add to cart</button>
+    </div>
+  </div>
+</div>
+ 
+    <script src="script.js"></script>
+  </body>
 </html>
